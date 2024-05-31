@@ -6,7 +6,7 @@ import numpy as np
 class MarkovChainApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Cálculo de Cadenas de Markov")
+        self.title("Investigacion Operativa II : Cadenas de Markov")
         self.geometry("700x600")
         self.create_widgets()
         self.configure_grid()
@@ -17,20 +17,23 @@ class MarkovChainApp(tk.Tk):
 
     def create_widgets(self):
         # Create frames for better layout
+        title_frame = tk.Frame(self)
+        title_frame.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+
         input_frame = tk.Frame(self)
-        input_frame.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+        input_frame.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
 
         matrix_frame = tk.Frame(self)
-        matrix_frame.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+        matrix_frame.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
 
         button_frame = tk.Frame(self)
-        button_frame.grid(row=2, column=0, padx=10, pady=10, sticky="ew")
+        button_frame.grid(row=3, column=0, padx=10, pady=10, sticky="ew")
 
         result_frame = tk.Frame(self)
-        result_frame.grid(row=3, column=0, padx=10, pady=10, sticky="nsew")
+        result_frame.grid(row=4, column=0, padx=10, pady=10, sticky="nsew")
 
         # Configure grid weights for frames
-        for i in range(4):
+        for i in range(5):
             self.grid_rowconfigure(i, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
@@ -38,19 +41,20 @@ class MarkovChainApp(tk.Tk):
         default_font = ("Arial", 12)
         title_font = ("Arial", 14, "bold")
 
+        # Title
+        tk.Label(title_frame, text="Cálculo de Cadenas de Markov", font=title_font).grid(row=0, column=0, padx=5, pady=5, sticky="ew")
+        title_frame.grid_columnconfigure(0, weight=1)
+
         # Input for number of states
-        tk.Label(input_frame, text="Número de estados:", font=default_font).grid(row=0, column=0, padx=5, pady=5,
-                                                                                 sticky="e")
+        tk.Label(input_frame, text="Número de estados:", font=default_font).grid(row=0, column=0, padx=5, pady=5, sticky="e")
         self.num_states_entry = tk.Entry(input_frame, font=default_font)
         self.num_states_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        self.set_matrix_button = tk.Button(input_frame, text="Establecer Matriz", command=self.set_matrix,
-                                           font=default_font)
+        self.set_matrix_button = tk.Button(input_frame, text="Establecer Matriz", command=self.set_matrix, font=default_font)
         self.set_matrix_button.grid(row=0, column=2, padx=5, pady=5, sticky="ew")
 
         # Input for number of steps
-        tk.Label(input_frame, text="Número de etapas (n):", font=default_font).grid(row=1, column=0, padx=5, pady=5,
-                                                                                    sticky="e")
+        tk.Label(input_frame, text="Número de etapas (n):", font=default_font).grid(row=1, column=0, padx=5, pady=5, sticky="e")
         self.num_steps_entry = tk.Entry(input_frame, font=default_font)
         self.num_steps_entry.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
 
