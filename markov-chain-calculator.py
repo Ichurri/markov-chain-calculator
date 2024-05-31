@@ -111,9 +111,9 @@ class MarkovChainApp(tk.Tk):
             n_step_probabilities = self.n_step_probabilities(matrix, num_steps)
             steady_state_probabilities = self.steady_state_probabilities(matrix)
 
-            result_text = "Matriz de transición de estado estacionario:\n"
-            result_text += np.array2string(steady_state_matrix, precision=2, separator=',')
-            result_text += "\n\nVector de distribución de probabilidad:\n"
+            #result_text = "Matriz de transición de estado estacionario:\n"
+            #result_text += np.array2string(steady_state_matrix, precision=2, separator=',')
+            result_text = "Vector de distribución de probabilidad:\n"
             result_text += np.array2string(steady_state_vector, precision=2, separator=',')
             result_text += f"\n\nProbabilidades de estado en la etapa {num_steps}:\n"
             result_text += np.array2string(n_step_probabilities, precision=2, separator=',')
