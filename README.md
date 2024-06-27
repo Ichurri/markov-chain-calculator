@@ -67,4 +67,4 @@ Ingresa "10" como el número de etapas (n).
 Haz clic en "Calcular".
 
 #### Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.##
+Este proyecto está bajo la Licencia SAIV. Consulta el archivo `LICENSE` para más detalles.##
